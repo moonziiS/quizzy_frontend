@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Quizzy Design System - Playful, Cute, Pastel Theme */
+
+@layer base {
+  :root {
+    /* Pastel Color Palette */
+    --background: 220 40% 98%;
+    --foreground: 260 10% 25%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 260 10% 25%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 260 10% 25%;
+
+    /* Mint Green - Primary */
+    --primary: 150 50% 75%;
+    --primary-foreground: 260 10% 25%;
+
+    /* Peachy Pink - Secondary */
+    --secondary: 350 70% 85%;
+    --secondary-foreground: 260 10% 25%;
+
+    /* Baby Blue - Accent */
+    --accent: 200 60% 80%;
+    --accent-foreground: 260 10% 25%;
+
+    /* Soft Yellow - Warning/Highlight */
+    --warning: 45 100% 85%;
+    --warning-foreground: 260 10% 25%;
+
+    /* Lavender - Info */
+    --info: 260 50% 85%;
+    --info-foreground: 260 10% 25%;
+
+    /* Muted pastel */
+    --muted: 220 20% 92%;
+    --muted-foreground: 260 10% 50%;
+
+    /* Success - Soft Green */
+    --success: 140 50% 75%;
+    --success-foreground: 260 10% 25%;
+
+    /* Destructive - Soft Red */
+    --destructive: 0 60% 80%;
+    --destructive-foreground: 260 10% 25%;
+
+    --border: 220 20% 88%;
+    --input: 220 20% 95%;
+    --ring: 150 50% 75%;
+
+    --radius: 1.5rem;
+
+    /* Custom gradients */
+    --gradient-rainbow: linear-gradient(135deg, 
+      hsl(150, 50%, 75%) 0%, 
+      hsl(200, 60%, 80%) 25%, 
+      hsl(260, 50%, 85%) 50%, 
+      hsl(350, 70%, 85%) 75%, 
+      hsl(45, 100%, 85%) 100%);
+    
+    --gradient-bubble: linear-gradient(135deg, 
+      hsl(200, 60%, 85%) 0%, 
+      hsl(260, 50%, 88%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 8px 32px hsl(260 10% 25% / 0.08);
+    --shadow-medium: 0 12px 48px hsl(260 10% 25% / 0.12);
+    --shadow-large: 0 20px 64px hsl(260 10% 25% / 0.16);
+    --shadow-glow: 0 0 32px hsl(150 50% 75% / 0.3);
+
+    /* Transitions */
+    --transition-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark pastel mode - softer dark colors */
+    --background: 260 15% 12%;
+    --foreground: 220 20% 92%;
+
+    --card: 260 15% 15%;
+    --card-foreground: 220 20% 92%;
+
+    --primary: 150 40% 60%;
+    --primary-foreground: 220 20% 92%;
+
+    --secondary: 350 60% 70%;
+    --secondary-foreground: 220 20% 92%;
+
+    --accent: 200 50% 65%;
+    --accent-foreground: 220 20% 92%;
+
+    --muted: 260 10% 20%;
+    --muted-foreground: 220 15% 65%;
+
+    --border: 260 10% 25%;
+    --input: 260 10% 20%;
+    --ring: 150 40% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Fredoka', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+  }
+}
+
+@layer utilities {
+  /* Animations */
+  @keyframes bounce-gentle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes jiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    75% { transform: rotate(5deg); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes pop-in {
+    0% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px hsl(150 50% 75% / 0.4); }
+    50% { box-shadow: 0 0 40px hsl(150 50% 75% / 0.8); }
+  }
+
+  .animate-bounce-gentle {
+    animation: bounce-gentle 2s ease-in-out infinite;
+  }
+
+  .animate-jiggle {
+    animation: jiggle 0.5s ease-in-out;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-pop-in {
+    animation: pop-in 0.4s var(--transition-bounce);
+  }
+
+  .animate-wiggle {
+    animation: wiggle 0.3s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  /* Bubble styles */
+  .bubble-card {
+    @apply rounded-3xl shadow-lg bg-card transition-all duration-300;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .bubble-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: var(--shadow-medium);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: var(--gradient-rainbow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Bubbly button base */
+  .btn-bubbly {
+    @apply rounded-full px-8 py-4 font-semibold transition-all duration-300;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .btn-bubbly:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: var(--shadow-medium);
+  }
+
+  .btn-bubbly:active {
+    transform: translateY(0) scale(0.98);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
